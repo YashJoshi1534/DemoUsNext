@@ -33,6 +33,19 @@ app.post('/api/send-email', (req, res) => {
     res.redirect(307, '/api/contact/send');
 });
 
+// Root route
+app.get('/', (req, res) => {
+    res.json({
+        status: 'ok',
+        service: 'US Next Tech API',
+        version: '1.0.0',
+        endpoints: {
+            health: '/api/health',
+            contact: 'POST /api/contact/send'
+        }
+    });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', message: 'US Next Tech Backend fully operational.' });
