@@ -7,17 +7,13 @@ import contactRoutes from './routes/contactRoutes.js';
 // Load env variables first
 dotenv.config();
 
-// Connect to MongoDB
-connectDB();
-
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // Middleware
 const corsOptions = {
     origin: [
         'http://localhost:5173',
-        process.env.FRONTEND_URL // Add your Render frontend URL here in .env
+        process.env.FRONTEND_URL
     ].filter(Boolean),
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -25,10 +21,13 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Routes
-app.use('/api/contact', contactRoutes);
+// Routes — connect to DB on each invocation (Vercel serverless pattern)
+app.use('/api/contact', async (req, res, next) => {
+    await connectDB();
+    next();
+}, contactRoutes);
 
-// Optional: Forward legacy route to new destination if needed, though frontend will be updated
+// Legacy redirect
 app.post('/api/send-email', (req, res) => {
     res.redirect(307, '/api/contact/send');
 });
@@ -46,11 +45,19 @@ app.get('/', (req, res) => {
     });
 });
 
-// Health check
+// Health check — does NOT require DB
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', message: 'US Next Tech Backend fully operational.' });
 });
 
-app.listen(PORT, () => {
-    console.log(`[Server] Running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-});
+// Start server only in local dev (not in Vercel serverless)
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 5000;
+    connectDB().then(() => {
+        app.listen(PORT, () => {
+            console.log(`[Server] Running on port ${PORT}`);
+        });
+    });
+}
+
+export default app;
