@@ -1,0 +1,204 @@
+.services {
+  padding: 100px 0;
+  background-color: #F8FAFC;
+  position: relative;
+  overflow: hidden;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #0F172A;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: #64748B;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+/* === SERVICE CARD === */
+.service-card {
+  position: relative;
+  background: white;
+  padding: 44px 40px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1.5px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1;
+  text-decoration: none; /* For Link version */
+  color: inherit;
+}
+
+/* Gradient border glow on hover */
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--icon-color, #1D3557), rgba(230, 57, 70, 0.6));
+  z-index: -2;
+  border-radius: 26px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Inner white box so content sits over gradient border */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: white;
+  z-index: -1;
+  border-radius: 23px;
+  transition: background 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  border-color: transparent;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+/* Linked card glows more passionately */
+.service-card-linked:hover {
+  box-shadow: 0 25px 50px rgba(230, 57, 70, 0.12);
+}
+
+/* === BADGE === */
+.service-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #E63946, #D62828);
+  color: white;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+/* === ICON === */
+.service-icon {
+  width: 64px;
+  height: 64px;
+  background: #F8FAFC;
+  color: var(--icon-color, #1D3557);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1.5px solid #E8EFFE;
+}
+
+.service-card:hover .service-icon {
+  background: var(--icon-color, #1D3557);
+  color: white;
+  transform: scale(1.1) rotate(-8deg);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  border-color: transparent;
+}
+
+/* === TEXT === */
+.service-title {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+  color: #0F172A;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.service-desc {
+  color: #475569;
+  flex-grow: 1;
+  margin-bottom: 30px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* === KPI === */
+.service-kpi-container {
+  display: flex;
+  align-items: center;
+  padding-top: 22px;
+  border-top: 1.5px solid #F1F5F9;
+  transition: border-color 0.4s ease;
+}
+
+.service-card:hover .service-kpi-container {
+  border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+.service-kpi {
+  font-weight: 700;
+  color: var(--kpi-color, #E63946);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kpi-arrow {
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.service-card:hover .kpi-arrow {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 968px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+}

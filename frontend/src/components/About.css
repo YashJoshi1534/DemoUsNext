@@ -1,0 +1,224 @@
+.about-section {
+  padding: 120px 0;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Premium background glow */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 30%;
+  width: 70%;
+  height: 100%;
+  background: radial-gradient(circle at right, rgba(230, 57, 70, 0.04) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-content {
+  position: relative;
+  padding-left: 30px;
+}
+
+/* Glowing side indicator */
+.about-content::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #1D3557, #E63946);
+  border-radius: 4px;
+}
+
+.about-content .section-title {
+  font-size: 3.5rem;
+  color: #0F172A;
+  margin-bottom: 35px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.highlight-underline {
+  position: relative;
+  display: inline-block;
+  color: #1D3557;
+}
+
+.highlight-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #1D3557, #E63946);
+  border-radius: 3px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.about-text-content p {
+  color: #475569;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* Stylized Premium 3D Logo Block */
+.about-logo-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 50px rgba(29, 53, 87, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  padding: 60px 40px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+}
+
+.about-logo-card:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(-10px);
+  box-shadow: 0 35px 60px rgba(29, 53, 87, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.flag-graphic {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 35px;
+  filter: drop-shadow(0 10px 15px rgba(230, 57, 70, 0.15));
+}
+
+.flag-row {
+  display: flex;
+  gap: 14px;
+  height: 24px;
+}
+
+.flag-blue-box {
+  background-color: #1D3557;
+  width: 25%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.flag-blue-box.small {
+  width: 15%;
+}
+
+.flag-red-stripe {
+  background: linear-gradient(90deg, #E63946, #D62828);
+  flex: 1;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.flag-red-stripe.full {
+  width: 100%;
+}
+
+.flag-red-stripe.long {
+  width: 80%;
+  flex: none;
+}
+
+.logo-text-block {
+  text-align: center;
+}
+
+.logo-text-block h1 {
+  color: #0F172A;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.accent-x {
+  color: #E63946;
+}
+
+.logo-text-block p {
+  color: #64748B;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Premium Gradient Promise Banner */
+.about-promise {
+  text-align: center;
+  margin-top: 60px;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #1D3557, #0F172A);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(29, 53, 87, 0.2);
+}
+
+.about-promise::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at top right, rgba(230, 57, 70, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.about-promise h3 {
+  font-size: 2.2rem;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+@media (max-width: 968px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .about-content .section-title {
+    font-size: 2.8rem;
+  }
+  
+  .about-logo-card {
+    transform: none;
+    padding: 40px 20px;
+  }
+  
+  .about-logo-card:hover {
+    transform: none;
+  }
+  
+  .about-promise h3 {
+    font-size: 1.6rem;
+  }
+}

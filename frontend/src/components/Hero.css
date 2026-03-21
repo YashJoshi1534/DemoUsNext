@@ -1,0 +1,289 @@
+/* --- Container --- */
+.video-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 800px;
+  max-height: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* --- Video Layer --- */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%; /* Extra height to allow Parallax scrolling down without exposing bottom */
+  z-index: 0;
+  will-change: transform, opacity;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(15, 23, 42, 0.65); /* Deep slate overlay matching Tailwind bg-slate-900/60 */
+  mix-blend-mode: multiply;
+}
+
+/* --- Content Layer --- */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base load animation */
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up-load {
+  animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* --- Typography & Elements --- */
+.hero-badge {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 30px;
+  background: rgba(59, 130, 246, 0.15); /* Tailwind blue-500/10 */
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #60A5FA; /* blue-400 */
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  backdrop-filter: blur(8px);
+}
+
+.hero-heading {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  letter-spacing: -1.5px;
+}
+
+.desktop-break {
+  display: block;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(90deg, #60A5FA, #3B82F6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-subheading {
+  font-size: 1.25rem;
+  color: #CBD5E1; /* slate-300 */
+  font-weight: 300;
+  margin-bottom: 40px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* --- Buttons --- */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-solid-red {
+  background-color: #DC2626; /* Tailwind red-600 */
+  color: white;
+  padding: 16px 36px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+}
+
+.btn-solid-red:hover {
+  background-color: #B91C1C;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(220, 38, 38, 0.4);
+}
+
+.btn-solid-red:active {
+  transform: scale(0.97);
+}
+
+.btn-outline-clear {
+  background-color: transparent;
+  color: white;
+  padding: 14px 34px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border: 2px solid #64748B; /* slate-500 */
+  transition: all 0.2s ease;
+}
+
+.btn-outline-clear:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+.btn-outline-clear:active {
+  transform: scale(0.97);
+}
+
+
+/* --- Floating Glass Cards --- */
+.floating-card {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 16px;
+  border-radius: 20px;
+  z-index: 20;
+  opacity: 0;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideInSide {
+  0% { opacity: 0; transform: translateX(var(--start-x)); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.delay-1 { animation: slideInSide 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards; }
+.delay-2 { animation: slideInSide 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards; }
+
+.float-offer {
+  --start-x: 50px;
+  top: 20%;
+  right: -5%;
+}
+
+.float-profile {
+  --start-x: -50px;
+  bottom: 20%;
+  left: -5%;
+  background: rgba(15, 23, 42, 0.4);
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+/* Card Elements */
+.icon-circle-green {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4ADE80, #059669); /* green-400 to emerald-600 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+}
+
+.icon-circle-green svg {
+  width: 24px;
+  height: 24px;
+}
+
+.float-card-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.float-card-text strong {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.float-card-text span {
+  color: #CBD5E1;
+  font-size: 0.8rem;
+}
+
+.profile-avatar-gradient {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #60A5FA, #6366F1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.profile-mock-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 90px;
+}
+
+.mock-line-long {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(148, 163, 184, 0.5);
+  border-radius: 4px;
+}
+
+.mock-line-short {
+  width: 66%;
+  height: 8px;
+  background-color: rgba(100, 116, 139, 0.5);
+  border-radius: 4px;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 1200px) {
+  .float-offer { right: 5%; }
+  .float-profile { left: 5%; }
+}
+
+@media (max-width: 968px) {
+  .hero-heading { font-size: 3.5rem; }
+  .float-offer, .float-profile { display: none; /* Hide floating elements on smaller screens */ }
+}
+
+@media (max-width: 768px) {
+  .hero-heading { font-size: 2.8rem; }
+  .desktop-break { display: none; }
+  .hero-subheading { font-size: 1.1rem; padding: 0 10px; }
+  .hero-buttons { flex-direction: column; width: 100%; gap: 15px; }
+  .btn-solid-red, .btn-outline-clear { width: 100%; text-align: center; }
+}
