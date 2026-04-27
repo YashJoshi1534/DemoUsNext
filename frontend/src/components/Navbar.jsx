@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'glass scrolled' : ''} ${isHome ? 'theme-light' : 'theme-dark'}`}>
+      <nav className={`navbar ${scrolled ? 'glass scrolled' : ''} theme-light ${!isHome ? 'bg-dark' : ''}`}>
         <div className="container navbar-container">
           <Link to="/" className="navbar-logo">
             US<span>Next</span>Tech
