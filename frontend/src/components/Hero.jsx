@@ -73,18 +73,7 @@ const Hero = () => {
 
         {/* 💼 Floating UI Elements (Absolute around Content) */}
         
-        {/* Job Offer Notification Card (Right side) */}
-        <div className="floating-card float-offer delay-1">
-          <div className="icon-circle-green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 6L9 17l-5-5" />
-            </svg>
-          </div>
-          <div className="float-card-text">
-            <strong>Job Offer Received!</strong>
-            <span>Software Engineer, NY</span>
-          </div>
-        </div>
+        {/* Removed Job Offer Notification Card per user request */}
 
         {/* Abstract Profile Card (Left side) */}
         <div className="floating-card float-profile delay-2">

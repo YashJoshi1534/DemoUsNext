@@ -1,6 +1,6 @@
 .services {
   padding: 100px 0;
-  background-color: #F8FAFC;
+  background-color: var(--bg-primary); /* Set to primary dark */
   position: relative;
   overflow: hidden;
 }
@@ -24,24 +24,30 @@
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 20px;
-  color: #0F172A;
+  color: var(--text-primary);
   font-weight: 800;
   letter-spacing: -1px;
 }
 
-.section-subtitle {
-  font-size: 1.25rem;
-  color: #64748B;
-  max-width: 650px;
-  margin: 0 auto;
-  line-height: 1.6;
+.highlight-purple {
+  color: var(--accent-purple);
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.subtitle-neon {
+  font-size: 0.85rem;
+  color: var(--accent-purple);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
   position: relative;
   z-index: 2;
@@ -50,59 +56,33 @@
 /* === SERVICE CARD === */
 .service-card {
   position: relative;
-  background: white;
+  background: var(--bg-elevated);
   padding: 44px 40px;
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1.5px solid #F1F5F9;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* very faint border */
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: 1;
   text-decoration: none; /* For Link version */
-  color: inherit;
+  color: var(--text-primary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Gradient border glow on hover */
+/* Remove the old gradient border glow */
 .service-card::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, var(--icon-color, #1D3557), rgba(230, 57, 70, 0.6));
-  z-index: -2;
-  border-radius: 26px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: none;
 }
 
-/* Inner white box so content sits over gradient border */
 .service-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: white;
-  z-index: -1;
-  border-radius: 23px;
-  transition: background 0.4s ease;
+  display: none;
 }
 
 .service-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
-  border-color: transparent;
-}
-
-.service-card:hover::after {
-  opacity: 1;
-}
-
-/* Linked card glows more passionately */
-.service-card-linked:hover {
-  box-shadow: 0 25px 50px rgba(230, 57, 70, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.5); /* Glowing purple border */
 }
 
 /* === BADGE === */
@@ -110,7 +90,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background: linear-gradient(135deg, #E63946, #D62828);
+  background: var(--accent-purple);
   color: white;
   padding: 4px 14px;
   border-radius: 20px;
@@ -118,43 +98,42 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
 }
 
 /* === ICON === */
 .service-icon {
-  width: 64px;
-  height: 64px;
-  background: #F8FAFC;
-  color: var(--icon-color, #1D3557);
-  border-radius: 18px;
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 28px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1.5px solid #E8EFFE;
+  transition: all 0.4s ease;
+  border: none;
 }
 
 .service-card:hover .service-icon {
-  background: var(--icon-color, #1D3557);
+  background: linear-gradient(135deg, var(--accent-purple), #7E22CE);
   color: white;
-  transform: scale(1.1) rotate(-8deg);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  border-color: transparent;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4);
 }
 
 /* === TEXT === */
 .service-title {
   font-size: 1.6rem;
   margin-bottom: 14px;
-  color: #0F172A;
+  color: var(--text-primary);
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
 .service-desc {
-  color: #475569;
+  color: var(--text-secondary);
   flex-grow: 1;
   margin-bottom: 30px;
   line-height: 1.7;
@@ -163,30 +142,7 @@
 
 /* === KPI === */
 .service-kpi-container {
-  display: flex;
-  align-items: center;
-  padding-top: 22px;
-  border-top: 1.5px solid #F1F5F9;
-  transition: border-color 0.4s ease;
-}
-
-.service-card:hover .service-kpi-container {
-  border-top-color: rgba(0, 0, 0, 0.06);
-}
-
-.service-kpi {
-  font-weight: 700;
-  color: var(--kpi-color, #E63946);
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.kpi-arrow {
-  transition: transform 0.3s ease;
-  display: flex;
-  align-items: center;
+  display: none; /* Hide KPI to match simple aesthetic of screenshot */
 }
 
 .service-card:hover .kpi-arrow {

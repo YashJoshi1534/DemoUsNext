@@ -1,7 +1,7 @@
 /* Footer Wrapper */
 .premium-footer-wrapper {
   position: relative;
-  background-color: var(--bg-white);
+  background-color: var(--bg-primary);
   padding-top: 100px; /* Space for the floating card */
 }
 
@@ -13,7 +13,7 @@
 }
 
 .floating-contact-card {
-  background: white;
+  background: var(--bg-elevated);
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
   padding: 50px;
@@ -27,7 +27,7 @@
   left: 0;
   width: 100%;
   height: 6px;
-  background: linear-gradient(90deg, #1D3557 0%, #E63946 100%);
+  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-red) 100%);
 }
 
 .card-header {
@@ -43,7 +43,7 @@
 }
 
 .card-header p {
-  color: #64748B;
+  color: var(--text-muted);
   font-size: 1.1rem;
 }
 
@@ -63,17 +63,17 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #F4F7FB;
+  background: var(--bg-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #E63946;
+  color: var(--accent-red);
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
 .detail-item:hover .icon-circle {
-  background: #E63946;
+  background: var(--accent-red);
   color: white;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(230, 57, 70, 0.2);
@@ -89,7 +89,7 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #94A3B8;
+  color: var(--text-muted);
   font-weight: 600;
 }
 
@@ -112,11 +112,11 @@
 
 /* Main Dark Footer */
 .footer-dark {
-  background-color: #0F172A; /* Deep Slate Blue */
+  background-color: var(--bg-inverse); /* Deep Slate Blue */
   padding: 220px 0 40px 0; /* Huge padding to clear the overlapping card */
   position: relative;
   overflow: hidden;
-  color: white;
+  color: var(--text-inverse);
 }
 
 .footer-bg-glow {
@@ -158,24 +158,24 @@
 }
 
 .footer-brand-logo h2 {
-  color: white;
+  color: var(--text-inverse);
   font-size: 2.2rem;
   font-weight: 900;
   letter-spacing: -1px;
   margin-bottom: 5px;
 }
 
-.accent-red { color: #E63946; }
+.accent-red { color: var(--accent-red); }
 
 .logo-subtext-light {
-  color: #94A3B8;
+  color: var(--text-muted);
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 1.5px;
 }
 
 .footer-about-text {
-  color: #CBD5E1;
+  color: var(--text-muted);
   font-size: 1.05rem;
   line-height: 1.7;
   max-width: 320px;
@@ -201,8 +201,8 @@
 }
 
 .social-links-glass a:hover {
-  background: #E63946;
-  border-color: #E63946;
+  background: var(--accent-red);
+  border-color: var(--accent-red);
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
 }
@@ -215,7 +215,7 @@
   margin-bottom: 30px;
   position: relative;
   display: inline-block;
-  color: white;
+  color: var(--text-inverse);
 }
 
 .footer-title::after {
@@ -225,7 +225,7 @@
   bottom: -10px;
   width: 30px;
   height: 3px;
-  background: #E63946;
+  background: var(--accent-red);
   border-radius: 3px;
 }
 
@@ -240,7 +240,7 @@
 }
 
 .footer-menu a {
-  color: #94A3B8;
+  color: var(--text-muted);
   text-decoration: none;
   font-size: 1.05rem;
   display: flex;
@@ -250,14 +250,14 @@
 }
 
 .footer-menu a svg {
-  color: #E63946;
+  color: var(--accent-red);
   opacity: 0;
   transform: translateX(-10px);
   transition: all 0.2s ease;
 }
 
 .footer-menu a:hover {
-  color: white;
+  color: var(--text-inverse);
   transform: translateX(5px);
 }
 
@@ -274,7 +274,7 @@
   align-items: center;
   padding-top: 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: #64748B;
+  color: var(--text-muted);
   position: relative;
   z-index: 2;
 }
@@ -285,13 +285,13 @@
 }
 
 .legal-links a {
-  color: #64748B;
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .legal-links a:hover {
-  color: white;
+  color: var(--text-inverse);
 }
 
 /* Scroll To Top */
@@ -307,7 +307,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-inverse);
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
@@ -315,7 +315,7 @@
 
 .scroll-top-btn:hover {
   background: white;
-  color: #0F172A;
+  color: var(--bg-inverse);
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }

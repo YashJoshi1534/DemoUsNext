@@ -1,14 +1,14 @@
 .partners-section {
   padding: 4rem 0;
-  background-color: var(--bg-white);
-  border-top: 1px solid rgba(0,0,0,0.05);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   overflow: hidden;
 }
 
 .partners-title {
   text-align: center;
-  color: var(--paragraph-text);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -35,12 +35,12 @@
 
 .marquee::before {
   left: 0;
-  background: linear-gradient(to right, var(--bg-white), transparent);
+  background: linear-gradient(to right, var(--bg-secondary), transparent);
 }
 
 .marquee::after {
   right: 0;
-  background: linear-gradient(to left, var(--bg-white), transparent);
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
 }
 
 .marquee-content {
@@ -55,7 +55,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
-  background-color: var(--section-light-bg);
+  background-color: var(--bg-secondary);
   border-radius: 8px;
   min-width: 180px;
   transition: all var(--transition-fast);
@@ -66,14 +66,14 @@
 .partner-logo:hover {
   filter: grayscale(0%);
   transform: scale(1.05);
-  box-shadow: var(--shadow-soft);
-  background-color: white;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+  background-color: var(--bg-elevated);
 }
 
 .partner-name {
   font-weight: 700;
   font-size: 1.25rem;
-  color: var(--heading-text);
+  color: var(--text-primary);
   font-family: var(--font-heading);
 }
 

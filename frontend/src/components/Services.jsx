@@ -46,8 +46,8 @@ const Services = () => {
     <section id="services" className="section bg-light services">
       <div className="container">
         <div className="section-header reveal">
-          <h2 className="section-title">Elevate Your Potential</h2>
-          <p className="section-subtitle">Comprehensive solutions designed for candidates and enterprises.</p>
+          <p className="section-subtitle subtitle-neon">OUR OFFERINGS</p>
+          <h2 className="section-title">Our <span className="highlight-purple">Services</span></h2>
         </div>
 
         <div className="services-grid">

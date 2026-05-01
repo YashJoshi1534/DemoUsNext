@@ -5,6 +5,7 @@ import './Navbar.css';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
 
@@ -20,6 +21,31 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Theme initialization
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      setIsDark(true);
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (isDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      setIsDark(false);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDark(true);
+    }
+  };
 
   // Lock body scroll when sidebar is open
   useEffect(() => {
@@ -57,6 +83,14 @@ const Navbar = () => {
             <Link to="/about" className="nav-link">ABOUT</Link>
             <a href="/#career" className="nav-link">CAREER</a>
             <a href="/#contact" className="nav-link">CONTACT</a>
+            <button 
+              className="theme-toggle-btn" 
+              onClick={toggleTheme} 
+              aria-label="Toggle dark mode"
+              title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {isDark ? '☀️' : '🌙'}
+            </button>
           </div>
 
           {/* Hamburger Button (Mobile Only) */}
@@ -104,6 +138,17 @@ const Navbar = () => {
           <Link to="/about" className="sidebar-link">ℹ️ About</Link>
           <a href="/#career" className="sidebar-link">💼 Career</a>
           <a href="/#contact" className="sidebar-link">📬 Contact</a>
+          
+          <div className="sidebar-theme-toggle">
+            <span className="sidebar-link" style={{ border: 'none', paddingBottom: 0 }}>Theme:</span>
+            <button 
+              className="theme-toggle-btn sidebar-btn" 
+              onClick={toggleTheme} 
+              aria-label="Toggle dark mode"
+            >
+              {isDark ? '☀️ Light Mode' : '🌙 Dark Mode'}
+            </button>
+          </div>
         </nav>
 
         {/* Sidebar Footer CTA */}

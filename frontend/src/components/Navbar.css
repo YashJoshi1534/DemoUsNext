@@ -9,8 +9,14 @@
 }
 
 .navbar.bg-dark {
-  background: #1D3557;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background: #0F172A; /* Always dark navy, regardless of theme */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode: navbar should match the dark theme palette */
+[data-theme="dark"] .navbar.bg-dark {
+  background: #0F0D1A; /* Match section-dark-bg */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .navbar-container {
@@ -64,6 +70,47 @@
   width: 100%;
 }
 
+/* === THEME TOGGLE BUTTON === */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: inherit;
+}
+
+.theme-dark .theme-toggle-btn {
+  border-color: rgba(29, 53, 87, 0.2);
+}
+
+.theme-light .theme-toggle-btn {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark .theme-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 /* === DROPDOWN === */
 .nav-dropdown {
   position: relative;
@@ -90,7 +137,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: white;
+  background-color: var(--bg-elevated);
   min-width: 250px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
@@ -111,7 +158,7 @@
 .dropdown-menu a {
   display: block;
   padding: 12px 20px;
-  color: var(--heading-text);
+  color: var(--text-primary);
   font-weight: 500;
   font-size: 0.9rem;
   text-decoration: none;
@@ -119,7 +166,7 @@
 }
 
 .dropdown-menu a:hover {
-  background-color: var(--bg-light);
+  background-color: var(--bg-secondary);
   color: var(--primary-blue);
 }
 
@@ -145,8 +192,8 @@
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hamburger-dark span { background-color: #1D3557; }
-.hamburger-light span { background-color: #ffffff; }
+.hamburger-dark span { background-color: var(--text-primary); }
+.hamburger-light span { background-color: var(--text-inverse); }
 
 /* Animated to X when open */
 .hamburger-btn.open span:nth-child(1) {
@@ -186,7 +233,7 @@
   width: 320px;
   max-width: 90vw;
   height: 100%;
-  background: #ffffff;
+  background: var(--bg-elevated);
   z-index: 1100;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -206,7 +253,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 25px 24px;
-  border-bottom: 1px solid #F1F5F9;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .sidebar-logo {
@@ -214,21 +261,21 @@
   font-size: 1.6rem;
   font-weight: 800;
   text-decoration: none;
-  color: #1D3557;
+  color: var(--text-primary);
   letter-spacing: -1px;
 }
 
-.sidebar-logo span { color: #E63946; }
+.sidebar-logo span { color: var(--accent-red); }
 
 .sidebar-close-btn {
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   width: 36px;
   height: 36px;
   cursor: pointer;
   font-size: 1rem;
-  color: #475569;
+  color: var(--text-muted);
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
@@ -236,9 +283,9 @@
 }
 
 .sidebar-close-btn:hover {
-  background: #E63946;
+  background: var(--accent-red);
   color: white;
-  border-color: #E63946;
+  border-color: var(--accent-red);
 }
 
 /* Sidebar Nav */
@@ -252,7 +299,7 @@
 .sidebar-link {
   display: block;
   padding: 16px 24px;
-  color: #1D3557;
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 1.05rem;
   text-decoration: none;
@@ -261,9 +308,9 @@
 }
 
 .sidebar-link:hover {
-  background: #F8FAFC;
-  border-left-color: #E63946;
-  color: #E63946;
+  background: var(--bg-secondary);
+  border-left-color: var(--accent-red);
+  color: var(--accent-red);
   padding-left: 30px;
 }
 
@@ -275,14 +322,14 @@
   padding: 10px 24px 6px;
   font-size: 0.75rem;
   font-weight: 800;
-  color: #94A3B8;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
 
 .sidebar-sub-link {
   font-size: 0.95rem;
-  color: #475569;
+  color: var(--text-secondary);
   padding-left: 32px;
   font-weight: 500;
 }
@@ -291,10 +338,56 @@
   padding-left: 38px;
 }
 
+/* Sidebar Theme Toggle */
+.sidebar-theme-toggle {
+  margin-top: 10px;
+  padding: 0 24px;
+}
+
+.theme-toggle-btn.sidebar-btn {
+  width: 100%;
+  border-radius: 8px;
+  height: 48px;
+  justify-content: flex-start;
+  padding: 0 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  margin-top: 8px;
+}
+
+[data-theme="dark"] .sidebar-drawer {
+  background: var(--bg-elevated);
+}
+
+[data-theme="dark"] .sidebar-logo,
+[data-theme="dark"] .sidebar-link,
+[data-theme="dark"] .sidebar-close-btn {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .sidebar-header,
+[data-theme="dark"] .sidebar-cta {
+  border-color: rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-red);
+}
+
+[data-theme="dark"] .theme-toggle-btn.sidebar-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
 /* Sidebar CTA Footer */
 .sidebar-cta {
   padding: 24px;
-  border-top: 1px solid #F1F5F9;
+  border-top: 1px solid var(--border-color);
 }
 
 .btn-sidebar-cta {
@@ -302,7 +395,7 @@
   width: 100%;
   text-align: center;
   padding: 16px;
-  background: #E63946;
+  background: var(--accent-red);
   color: white;
   font-weight: 700;
   font-size: 1rem;
@@ -313,7 +406,7 @@
 }
 
 .btn-sidebar-cta:hover {
-  background: #D62828;
+  background: var(--accent-red);
   box-shadow: 0 12px 25px rgba(230, 57, 70, 0.3);
   transform: translateY(-1px);
 }

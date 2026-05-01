@@ -1,13 +1,13 @@
 /* Placement Services Layout */
 .page-wrapper {
-  background-color: #F8FAFC;
+  background-color: var(--bg-secondary);
   min-height: 100vh;
 }
 
 /* 🚀 Hero Section */
 .ps-hero {
   padding: 160px 0 100px;
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
   position: relative;
   overflow: hidden;
 }
@@ -46,7 +46,7 @@
 
 .accent-bar-title h1 {
   font-size: 3.2rem;
-  color: #1D3557; /* Deep Navy */
+  color: var(--text-primary);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -1px;
@@ -54,13 +54,13 @@
 
 .ps-hero-description {
   font-size: 1.2rem;
-  color: #475569;
+  color: var(--text-secondary);
   line-height: 1.8;
   max-width: 90%;
 }
 
 .text-red {
-  color: #E63946;
+  color: var(--accent-red);
 }
 
 /* Abstract Premium Graphic */
@@ -132,7 +132,7 @@
 .ps-stats-section {
   padding: 100px 0;
   text-align: center;
-  background-color: #0F172A; /* Slate */
+  background-color: var(--bg-inverse); /* Slate */
 }
 
 .ps-section-header {
@@ -158,15 +158,15 @@
 }
 
 .solid-badge {
-  border: 2px solid #E63946;
-  color: #1D3557;
+  border: 2px solid var(--accent-red);
+  color: var(--primary-blue);
   background: white;
   box-shadow: 0 10px 20px rgba(230, 57, 70, 0.1);
 }
 
 .ps-section-header h2 {
   font-size: 2.5rem;
-  color: white;
+  color: var(--text-inverse);
   margin-bottom: 15px;
 }
 
@@ -217,7 +217,7 @@
 /* 🛤️ Roadmap Section */
 .ps-roadmap-section {
   padding: 120px 0;
-  background: #ffffff;
+  background: var(--bg-primary);
 }
 
 .ps-roadmap-grid {
@@ -230,10 +230,10 @@
 
 .ps-roadmap-card {
   position: relative;
-  background: white;
+  background: var(--bg-elevated);
   border-radius: 24px;
   padding: 40px 40px 40px 80px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid var(--border-color);
   box-shadow: 0 10px 30px rgba(0,0,0,0.03);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   /* overflow: hidden; Removed to ensure step circles do not clip */
@@ -254,7 +254,7 @@
 .ps-roadmap-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(29, 53, 87, 0.1);
-  border-color: #CBD5E1;
+  border-color: var(--primary-blue);
 }
 
 .ps-roadmap-card:hover::before {
@@ -289,24 +289,24 @@
 
 .ps-card-content h4 {
   font-size: 1.5rem;
-  color: #0F172A;
+  color: var(--text-primary);
   margin-bottom: 12px;
   font-weight: 800;
 }
 
 .ps-card-content p {
-  color: #E63946; /* The text in the screenshot steps is reddish/brownish */
+  color: var(--accent-red); /* The text in the screenshot steps is reddish/brownish */
   font-size: 1.05rem;
   line-height: 1.6;
 }
 
 /* Some steps have different text colors in screenshot */
 .ps-roadmap-card:nth-child(n+3) .ps-card-content p {
-  color: #475569;
+  color: var(--text-secondary);
 }
 
 .ps-card-icon {
-  color: #94A3B8;
+  color: var(--text-muted);
   margin-bottom: 15px;
   opacity: 0.5;
 }

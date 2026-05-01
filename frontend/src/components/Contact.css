@@ -1,6 +1,6 @@
 .contact-section {
-  background-color: var(--primary-blue);
-  color: white;
+  background-color: var(--section-dark-bg);
+  color: var(--section-dark-text);
   position: relative;
   overflow: hidden;
 }
@@ -13,7 +13,8 @@
   right: -10%;
   width: 50%;
   height: 150%;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+  background: radial-gradient(circle, var(--accent-red) 0%, transparent 60%);
+  opacity: 0.05;
   transform: rotate(-15deg);
   pointer-events: none;
 }
@@ -30,13 +31,13 @@
 }
 
 .contact-info .section-title {
-  color: white;
+  color: var(--section-dark-text);
   text-align: left;
   margin-bottom: 1.5rem;
 }
 
 .contact-desc {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--section-dark-muted);
   font-size: 1.125rem;
   margin-bottom: 2.5rem;
 }
@@ -48,7 +49,7 @@
 }
 
 .contact-details p {
-  color: white;
+  color: var(--section-dark-text);
   font-size: 1.125rem;
 }
 
@@ -60,12 +61,11 @@
 
 .contact-form-wrapper {
   flex: 1;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--section-dark-card);
   padding: 3rem;
   border-radius: var(--card-radius);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .contact-form {
@@ -92,7 +92,7 @@
 .form-group label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--section-dark-text);
 }
 
 .form-group input,
@@ -100,8 +100,8 @@
   padding: 1rem;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;
   font-family: inherit;
   font-size: 1rem;
   transition: border-color var(--transition-fast), background var(--transition-fast);
@@ -111,12 +111,12 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--accent-red);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--section-dark-muted);
 }
 
 .submit-btn {
