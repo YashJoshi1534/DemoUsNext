@@ -17,10 +17,17 @@
 
 /* Dark mode card override */
 [data-theme="dark"] .pricing-card {
-  background: var(--bg-elevated);
+  background: #13131F;
   color: #FFFFFF;
-  border: 1px solid rgba(168, 85, 247, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Brighter default border for BEST SELLER and PREMIUM cards */
+[data-theme="dark"] .pricing-card.card-highlighted {
+  border: 1px solid rgba(168, 85, 247, 0.5);
 }
 
 /* === LIGHT MODE HOVER: Original radiant gradient border glow === */
@@ -46,20 +53,33 @@
   border-color: transparent;
 }
 
-/* === DARK MODE HOVER: Neon purple glow === */
+/* === DARK MODE HOVER: Neon purple glow with top highlight === */
 [data-theme="dark"] .pricing-card::before {
-  display: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #A855F7;
+  border-radius: 16px 16px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  inset: unset;
+  z-index: 2;
+}
+
+[data-theme="dark"] .pricing-card:hover::before,
+[data-theme="dark"] .pricing-card.active::before {
+  opacity: 1;
 }
 
 [data-theme="dark"] .pricing-card:hover,
 [data-theme="dark"] .pricing-card.active {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow:
-    0 0 20px rgba(168, 85, 247, 0.3),
-    0 0 60px rgba(168, 85, 247, 0.15),
-    0 20px 40px rgba(0, 0, 0, 0.4);
-  border-color: var(--accent-purple);
-  background: linear-gradient(145deg, #1E1B2E, #261F3D); /* Slightly lighter on hover */
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.35);
+  border-color: rgba(168, 85, 247, 0.7);
+  background: #13131F;
 }
 
 /* Typography & Layout */
@@ -82,6 +102,11 @@
   color: var(--primary-blue, #1D3557);
 }
 
+/* Dark mode: Plan title in purple */
+[data-theme="dark"] .card-title {
+  color: #A855F7;
+}
+
 .price-display {
   display: flex;
   align-items: flex-start;
@@ -96,12 +121,22 @@
   color: var(--primary-blue, #1D3557);
 }
 
+/* Dark mode: Currency in white */
+[data-theme="dark"] .currency {
+  color: #FFFFFF;
+}
+
 .amount {
   font-size: 3.5rem;
   font-weight: 800;
   line-height: 1;
   font-family: var(--font-heading, sans-serif);
   color: var(--primary-blue, #1D3557);
+}
+
+/* Dark mode: Price amount in white */
+[data-theme="dark"] .amount {
+  color: #FFFFFF;
 }
 
 .billing-cycle {
@@ -114,7 +149,7 @@
 }
 
 [data-theme="dark"] .billing-cycle {
-  color: rgba(255, 255, 255, 0.6);
+  color: #CBD5E1;
 }
 
 .card-body {
@@ -137,8 +172,9 @@
   margin-bottom: 0.25rem;
 }
 
+/* Dark mode: Strikethrough percentage in muted gray */
 [data-theme="dark"] .strike-price {
-  color: rgba(255, 255, 255, 0.5);
+  color: #4B5563;
 }
 
 .installment-text {
@@ -147,8 +183,9 @@
   color: #059669; /* Original darker green */
 }
 
+/* Dark mode: Highlighted percentage in light purple */
 [data-theme="dark"] .installment-text {
-  color: #C084FC; /* Bright purple */
+  color: #C084FC;
   text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
 }
 
@@ -166,7 +203,7 @@
 [data-theme="dark"] .student-discount {
   background: rgba(168, 85, 247, 0.06);
   border: 1px solid rgba(168, 85, 247, 0.12);
-  color: rgba(255, 255, 255, 0.85);
+  color: #CBD5E1;
 }
 
 .student-discount strong {
@@ -185,8 +222,9 @@
   line-height: 1.5;
 }
 
+/* Dark mode: Description text */
 [data-theme="dark"] .card-desc {
-  color: rgba(255, 255, 255, 0.7);
+  color: #CBD5E1;
 }
 
 .card-features {
@@ -205,7 +243,7 @@
 }
 
 [data-theme="dark"] .card-features li {
-  color: #FFFFFF;
+  color: #CBD5E1;
 }
 
 .card-features li::before {
@@ -237,10 +275,11 @@
   z-index: 2;
 }
 
+/* Dark mode: Badge with purple accent and border */
 [data-theme="dark"] .modern-badge {
-  background: var(--bg-elevated);
-  color: var(--accent-purple);
-  border: 1px solid var(--accent-purple);
+  background: #13131F;
+  color: #A855F7;
+  border: 1px solid rgba(168, 85, 247, 0.4);
   box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
 }
 
@@ -250,7 +289,10 @@
 }
 
 [data-theme="dark"] .modern-badge.badge-popular {
-  border: none;
+  background: #13131F;
+  color: #A855F7;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
 }
 
 .modern-badge.badge-premium {
@@ -261,7 +303,8 @@
 }
 
 [data-theme="dark"] .modern-badge.badge-premium {
-  background: linear-gradient(90deg, var(--accent-purple), var(--accent-red));
-  border: none;
+  background: #13131F;
+  color: #A855F7;
+  border: 1px solid rgba(168, 85, 247, 0.4);
   box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }

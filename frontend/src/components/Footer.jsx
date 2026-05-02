@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="container relative-overlap">
         <div className="floating-contact-card reveal">
           <div className="card-accent-bar"></div>
-          <div className="card-header">
+          <div className="footer-card-header">
             <h3>Get in Touch</h3>
             <p>Connect with our expert team today</p>
           </div>

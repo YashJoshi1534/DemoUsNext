@@ -44,37 +44,37 @@
 }
 
 [data-theme='dark'] {
-  /* Brand Colors - Glowing Neon */
-  --primary-blue: #A855F7; /* Glowing Purple */
-  --accent-red: #D946EF; /* Glowing Fuchsia */
+  /* Brand Colors — Unified Purple Palette */
+  --primary-blue: #7C3AED; /* Brand purple */
+  --accent-red: #A855F7; /* Purple accent (replaces fuchsia) */
   --accent-purple: #C084FC; /* Brighter purple for text highlights */
   
-  /* Backgrounds - High Contrast Dark Palette */
-  --bg-primary: #07070B; /* Deepest true black */
-  --bg-secondary: #13111C; /* Visible purple-tinted dark */
-  --bg-elevated: #1E1B2E; /* Cards - noticeably lighter */
-  --bg-inverse: #FFFFFF;
+  /* Backgrounds — Dark Palette */
+  --bg-primary: #0A0A0F; /* Page background */
+  --bg-secondary: #0D0D1A; /* Section alt background */
+  --bg-elevated: #13131F; /* Cards */
+  --bg-inverse: #0D0D1A; /* Footer/dark sections (NOT white) */
   
   /* Text */
-  --text-primary: #F5F5FF; 
-  --text-secondary: #A8A3BE;
-  --text-muted: #6E6989;
-  --text-inverse: #07070B;
+  --text-primary: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #6B7280;
+  --text-inverse: #FFFFFF;
   
   /* Borders & Dividers */
-  --border-color: rgba(168, 85, 247, 0.12); /* Subtle purple tint */
-  --border-subtle: rgba(168, 85, 247, 0.06); 
+  --border-color: rgba(139, 92, 246, 0.2);
+  --border-subtle: rgba(139, 92, 246, 0.1);
   
-  /* Always Dark Section Variables — Rich Navy-Purple */
-  --section-dark-bg: #0F0D1A; /* Rich dark navy-purple */
-  --section-dark-text: #F5F5FF;
-  --section-dark-muted: #A8A3BE;
-  --section-dark-card: rgba(168, 85, 247, 0.06); /* Very subtle purple glass */
+  /* Always Dark Section Variables */
+  --section-dark-bg: #0D0D1A;
+  --section-dark-text: #FFFFFF;
+  --section-dark-muted: #94A3B8;
+  --section-dark-card: rgba(139, 92, 246, 0.06);
 
-  /* Utilities - Neon Glows */
-  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.8);
-  --shadow-hover: 0 10px 30px rgba(168, 85, 247, 0.25);
-  --shadow-red-glow: 0 0 30px rgba(217, 70, 239, 0.4);
+  /* Utilities — Purple Glows */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.6);
+  --shadow-hover: 0 10px 30px rgba(139, 92, 246, 0.25);
+  --shadow-red-glow: 0 0 30px rgba(139, 92, 246, 0.4);
 }
 
 * {

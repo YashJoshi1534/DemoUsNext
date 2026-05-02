@@ -44,6 +44,10 @@
   border-radius: 4px;
 }
 
+[data-theme="dark"] .accent-bar-title::before {
+  background: linear-gradient(180deg, #7C3AED, #A855F7);
+}
+
 .accent-bar-title h1 {
   font-size: 3.2rem;
   color: var(--text-primary);
@@ -133,6 +137,14 @@
   padding: 100px 0;
   text-align: center;
   background-color: var(--bg-inverse); /* Slate */
+}
+
+[data-theme="dark"] .ps-stats-section {
+  background-color: #0D0D1A;
+}
+
+[data-theme="dark"] .ps-section-header h2 {
+  color: #FFFFFF;
 }
 
 .ps-section-header {
@@ -251,6 +263,20 @@
   transition: opacity 0.3s ease;
 }
 
+[data-theme="dark"] .ps-roadmap-card::before {
+  background: linear-gradient(180deg, #7C3AED, #A855F7);
+}
+
+[data-theme="dark"] .ps-roadmap-card {
+  background: #13131F;
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+[data-theme="dark"] .ps-roadmap-card:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
+}
+
 .ps-roadmap-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(29, 53, 87, 0.1);
@@ -282,9 +308,19 @@
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
+[data-theme="dark"] .step-circle {
+  background: #7C3AED;
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+}
+
 .ps-roadmap-card:hover .step-circle {
   transform: scale(1.1);
   background: #E63946;
+}
+
+[data-theme="dark"] .ps-roadmap-card:hover .step-circle {
+  background: #A855F7;
 }
 
 .ps-card-content h4 {
@@ -295,9 +331,13 @@
 }
 
 .ps-card-content p {
-  color: var(--accent-red); /* The text in the screenshot steps is reddish/brownish */
+  color: var(--accent-red);
   font-size: 1.05rem;
   line-height: 1.6;
+}
+
+[data-theme="dark"] .ps-card-content p {
+  color: #94A3B8;
 }
 
 /* Some steps have different text colors in screenshot */

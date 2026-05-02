@@ -19,7 +19,7 @@ const PricingCard = ({
 }) => {
   return (
     <div 
-      className={`pricing-card ${isActive ? 'active' : ''}`}
+      className={`pricing-card ${isActive ? 'active' : ''} ${isPopular || isPremium ? 'card-highlighted' : ''}`}
       onClick={() => onClick(id)}
     >
       
