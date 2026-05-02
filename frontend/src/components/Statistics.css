@@ -4,6 +4,10 @@
   position: relative;
 }
 
+[data-theme="dark"] .statistics-section {
+  background-color: var(--bg-primary);
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -23,6 +27,14 @@
   z-index: 1;
 }
 
+/* Dark mode: Stat card */
+[data-theme="dark"] .stat-item {
+  background: #13131F;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-top: 2px solid #7C3AED;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
 .stat-item::before {
   content: '';
   position: absolute;
@@ -35,9 +47,22 @@
   transition: opacity 0.4s ease;
 }
 
+/* Dark mode: Hide ::before bar since we have border-top */
+[data-theme="dark"] .stat-item::before {
+  display: none;
+}
+
 .stat-item:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(29, 53, 87, 0.08);
+}
+
+/* Dark mode: Stat card hover */
+[data-theme="dark"] .stat-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.5);
+  border-top-color: #A855F7;
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2);
 }
 
 .stat-item:hover::before {
@@ -53,9 +78,22 @@
   letter-spacing: -2px;
 }
 
+/* Dark mode: Number white */
+[data-theme="dark"] .stat-number {
+  color: #FFFFFF;
+}
+
 /* Add a glowing text effect on hover */
 .stat-item:hover .stat-number {
   background: linear-gradient(135deg, #1D3557, #E63946);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark mode: Purple gradient on hover */
+[data-theme="dark"] .stat-item:hover .stat-number {
+  background: linear-gradient(135deg, #7C3AED, #C084FC);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -67,6 +105,11 @@
   color: #64748B;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+}
+
+/* Dark mode: Label color */
+[data-theme="dark"] .stat-label {
+  color: #6B7280;
 }
 
 @media (max-width: 968px) {

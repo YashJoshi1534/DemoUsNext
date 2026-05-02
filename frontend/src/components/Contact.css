@@ -5,6 +5,10 @@
   overflow: hidden;
 }
 
+[data-theme="dark"] .contact-section {
+  background: linear-gradient(135deg, #0F0A2A 0%, #1A1145 50%, #0D0B24 100%);
+}
+
 /* Decorative background elements */
 .contact-section::before {
   content: '';
@@ -16,6 +20,10 @@
   background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
   transform: rotate(-15deg);
   pointer-events: none;
+}
+
+[data-theme="dark"] .contact-section::before {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
 }
 
 .contact-container {
@@ -41,6 +49,10 @@
   margin-bottom: 2.5rem;
 }
 
+[data-theme="dark"] .contact-desc {
+  color: var(--section-dark-muted);
+}
+
 .contact-details {
   display: flex;
   flex-direction: column;
@@ -58,6 +70,10 @@
   width: 80px;
 }
 
+[data-theme="dark"] .contact-details strong {
+  color: #A855F7;
+}
+
 .contact-form-wrapper {
   flex: 1;
   background: rgba(255, 255, 255, 0.1);
@@ -66,6 +82,12 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+}
+
+[data-theme="dark"] .contact-form-wrapper {
+  background: #13131F;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .contact-form {
@@ -107,6 +129,13 @@
   transition: border-color var(--transition-fast), background var(--transition-fast);
 }
 
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+  background: #13131F;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #CBD5E1;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
@@ -114,9 +143,20 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus {
+  border-color: #A855F7;
+  background: #0A0A0F;
+}
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder {
+  color: #4B5563;
 }
 
 .submit-btn {
@@ -125,6 +165,19 @@
   background-color: var(--accent-red);
   padding: 1rem;
   font-size: 1.125rem;
+}
+
+[data-theme="dark"] .submit-btn {
+  background: linear-gradient(135deg, #7C3AED, #A855F7);
+  color: #FFFFFF;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .submit-btn:hover {
+  background: linear-gradient(135deg, #6D28D9, #9333EA);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+  transform: scale(1.02);
 }
 
 .submit-btn:disabled {

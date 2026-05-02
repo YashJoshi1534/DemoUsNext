@@ -1,5 +1,5 @@
 .pricing-card {
-  /* Cool gradient: Light Blue -> White -> Light Red */
+  /* Original light theme: Cool gradient */
   background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #fee2e2 100%);
   color: var(--primary-blue, #1D3557);
   border-radius: 16px;
@@ -15,7 +15,22 @@
   z-index: 1;
 }
 
-/* Radiant glow and gradient border effect */
+/* Dark mode card override */
+[data-theme="dark"] .pricing-card {
+  background: #13131F;
+  color: #FFFFFF;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Brighter default border for BEST SELLER and PREMIUM cards */
+[data-theme="dark"] .pricing-card.card-highlighted {
+  border: 1px solid rgba(168, 85, 247, 0.5);
+}
+
+/* === LIGHT MODE HOVER: Original radiant gradient border glow === */
 .pricing-card::before {
   content: '';
   position: absolute;
@@ -27,17 +42,44 @@
   transition: opacity 0.4s ease;
 }
 
-
-
 .pricing-card:hover::before, .pricing-card.active::before {
   opacity: 1;
 }
 
 .pricing-card:hover, .pricing-card.active {
   transform: translateY(-8px);
-  /* Combine red and blue in the shadow for a radiant glow */
+  /* Original radiant blue+red glow */
   box-shadow: -10px 20px 40px rgba(96, 165, 250, 0.2), 10px 20px 40px rgba(230, 57, 70, 0.2);
   border-color: transparent;
+}
+
+/* === DARK MODE HOVER: Neon purple glow with top highlight === */
+[data-theme="dark"] .pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #A855F7;
+  border-radius: 16px 16px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  inset: unset;
+  z-index: 2;
+}
+
+[data-theme="dark"] .pricing-card:hover::before,
+[data-theme="dark"] .pricing-card.active::before {
+  opacity: 1;
+}
+
+[data-theme="dark"] .pricing-card:hover,
+[data-theme="dark"] .pricing-card.active {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.35);
+  border-color: rgba(168, 85, 247, 0.7);
+  background: #13131F;
 }
 
 /* Typography & Layout */
@@ -48,12 +90,21 @@
   border-bottom: 1px solid rgba(29, 53, 87, 0.1);
 }
 
+[data-theme="dark"] .card-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
 .card-title {
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 2px;
   margin-bottom: 1rem;
   color: var(--primary-blue, #1D3557);
+}
+
+/* Dark mode: Plan title in purple */
+[data-theme="dark"] .card-title {
+  color: #A855F7;
 }
 
 .price-display {
@@ -70,12 +121,22 @@
   color: var(--primary-blue, #1D3557);
 }
 
+/* Dark mode: Currency in white */
+[data-theme="dark"] .currency {
+  color: #FFFFFF;
+}
+
 .amount {
   font-size: 3.5rem;
   font-weight: 800;
   line-height: 1;
   font-family: var(--font-heading, sans-serif);
   color: var(--primary-blue, #1D3557);
+}
+
+/* Dark mode: Price amount in white */
+[data-theme="dark"] .amount {
+  color: #FFFFFF;
 }
 
 .billing-cycle {
@@ -85,6 +146,10 @@
   color: #64748b;
   margin-top: 0.5rem;
   letter-spacing: 1px;
+}
+
+[data-theme="dark"] .billing-cycle {
+  color: #CBD5E1;
 }
 
 .card-body {
@@ -100,17 +165,28 @@
 
 .strike-price {
   text-decoration: line-through;
-  color: #ef4444; /* standard red */
+  color: #ef4444;
   font-size: 1.2rem;
   font-weight: bold;
   display: block;
   margin-bottom: 0.25rem;
 }
 
+/* Dark mode: Strikethrough percentage in muted gray */
+[data-theme="dark"] .strike-price {
+  color: #4B5563;
+}
+
 .installment-text {
   font-size: 0.9rem;
   font-weight: bold;
-  color: #059669; /* Darker green for contrast on light background */
+  color: #059669; /* Original darker green */
+}
+
+/* Dark mode: Highlighted percentage in light purple */
+[data-theme="dark"] .installment-text {
+  color: #C084FC;
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.3);
 }
 
 .student-discount {
@@ -124,8 +200,18 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+[data-theme="dark"] .student-discount {
+  background: rgba(168, 85, 247, 0.06);
+  border: 1px solid rgba(168, 85, 247, 0.12);
+  color: #CBD5E1;
+}
+
 .student-discount strong {
-  color: #b91c1c; /* Darker red for emphasis and readability */
+  color: #b91c1c; /* Original darker red */
+}
+
+[data-theme="dark"] .student-discount strong {
+  color: var(--accent-red);
 }
 
 .card-desc {
@@ -134,6 +220,11 @@
   text-align: center;
   margin-bottom: 1.5rem;
   line-height: 1.5;
+}
+
+/* Dark mode: Description text */
+[data-theme="dark"] .card-desc {
+  color: #CBD5E1;
 }
 
 .card-features {
@@ -150,6 +241,11 @@
   line-height: 1.4;
   color: var(--primary-blue, #1D3557);
 }
+
+[data-theme="dark"] .card-features li {
+  color: #CBD5E1;
+}
+
 .card-features li::before {
   content: '•';
   color: var(--accent-red, #E63946);
@@ -173,21 +269,42 @@
   text-transform: uppercase;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   white-space: nowrap;
-  /* Default radiant gradient for badge to tie the red/white/blue theme together */
+  /* Original radiant gradient badge */
   background: linear-gradient(90deg, var(--primary-blue, #1D3557), var(--accent-red, #E63946));
   color: white;
   z-index: 2;
 }
 
+/* Dark mode: Badge with purple accent and border */
+[data-theme="dark"] .modern-badge {
+  background: #13131F;
+  color: #A855F7;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+}
+
 .modern-badge.badge-popular {
-  /* Extra radiant pop for bestseller */
   background: var(--accent-red, #E63946);
   box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
 }
 
+[data-theme="dark"] .modern-badge.badge-popular {
+  background: #13131F;
+  color: #A855F7;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
 .modern-badge.badge-premium {
-  /* Radiant gold/red combo for premium */
+  /* Original gold/red combo */
   background: linear-gradient(90deg, #d4af37, var(--accent-red, #E63946));
   color: white;
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+[data-theme="dark"] .modern-badge.badge-premium {
+  background: #13131F;
+  color: #A855F7;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }
